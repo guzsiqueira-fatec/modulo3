@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    function:
+      definition: messageConsumer
+    stream:
+      bindings:
+        messageConsumer-in-0:
+          destination: ${KAFKA_TOPIC}
+          group: ${KAFKA_CONSUMER_GROUP}
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKERS}
+
